@@ -4,14 +4,8 @@ import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { defineConfig } from "vite";
 
-const githubRepo = process.env.GITHUB_REPOSITORY?.split("/")[1];
-const githubPagesBase =
-  process.env.GITHUB_ACTIONS === "true" && githubRepo && !githubRepo.endsWith(".github.io")
-    ? `/${githubRepo}/`
-    : "/";
-
 export default defineConfig({
-  base: githubPagesBase,
+  base: "/",
   plugins: [react(), tailwindcss(), jsxLocPlugin()],
   resolve: {
     alias: {
